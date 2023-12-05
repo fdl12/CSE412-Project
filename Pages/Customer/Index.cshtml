@@ -1,0 +1,60 @@
+﻿@page
+@model InventoryManagmentSystem.Pages.Customer.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Customer</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].CustomerN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].CustomerP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].Adress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].ZipCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].PaymentInfo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Customer) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentInfo)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CustomerId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CustomerId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CustomerId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

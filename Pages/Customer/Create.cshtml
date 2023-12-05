@@ -1,0 +1,59 @@
+﻿@page
+@model InventoryManagmentSystem.Pages.Customer.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Customer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Customer.CustomerId" class="control-label"></label>
+                <input asp-for="Customer.CustomerId" class="form-control" />
+                <span asp-validation-for="Customer.CustomerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customer.CustomerN" class="control-label"></label>
+                <input asp-for="Customer.CustomerN" class="form-control" />
+                <span asp-validation-for="Customer.CustomerN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customer.CustomerP" class="control-label"></label>
+                <input asp-for="Customer.CustomerP" class="form-control" />
+                <span asp-validation-for="Customer.CustomerP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customer.Adress" class="control-label"></label>
+                <input asp-for="Customer.Adress" class="form-control" />
+                <span asp-validation-for="Customer.Adress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customer.ZipCode" class="control-label"></label>
+                <input asp-for="Customer.ZipCode" class="form-control" />
+                <span asp-validation-for="Customer.ZipCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customer.PaymentInfo" class="control-label"></label>
+                <input asp-for="Customer.PaymentInfo" class="form-control" />
+                <span asp-validation-for="Customer.PaymentInfo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,54 @@
+﻿@page
+@model InventoryManagmentSystem.Pages.Supplier.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Supplier</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplier[0].SupplierN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplier[0].Adress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplier[0].SupplierRating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplier[0].ContactPerson)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Supplier) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplierN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplierRating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactPerson)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.SupplierId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.SupplierId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.SupplierId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,75 @@
+﻿@page
+@model InventoryManagmentSystem.Pages.Inventory.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Inventory</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].ReorderQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].StockOnHand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].SafetyStock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].ReorderLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].Product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].Supplier)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].Warehouse)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Inventory) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReorderQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StockOnHand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SafetyStock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReorderLevel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Supplier.SupplierId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Warehouse.WarehouseId)
+            </td>
+            <td>
+@*                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                <a asp-page="./Edit" asp-route-id="@($"{item.WarehouseId},{item.ProductId},{item.SupplierId}")">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@($"{item.WarehouseId},{item.ProductId},{item.SupplierId}")">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@($"{item.WarehouseId},{item.ProductId},{item.SupplierId}")">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

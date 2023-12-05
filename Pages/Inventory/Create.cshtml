@@ -1,0 +1,61 @@
+﻿@page
+@model InventoryManagmentSystem.Pages.Inventory.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Inventory</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Inventory.WarehouseId" class="control-label"></label>
+                <select asp-for="Inventory.WarehouseId" class ="form-control" asp-items="ViewBag.WarehouseId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Inventory.ProductId" class="control-label"></label>
+                <select asp-for="Inventory.ProductId" class ="form-control" asp-items="ViewBag.ProductId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Inventory.SupplierId" class="control-label"></label>
+                <select asp-for="Inventory.SupplierId" class ="form-control" asp-items="ViewBag.SupplierId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Inventory.ReorderQuantity" class="control-label"></label>
+                <input asp-for="Inventory.ReorderQuantity" class="form-control" />
+                <span asp-validation-for="Inventory.ReorderQuantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Inventory.StockOnHand" class="control-label"></label>
+                <input asp-for="Inventory.StockOnHand" class="form-control" />
+                <span asp-validation-for="Inventory.StockOnHand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Inventory.SafetyStock" class="control-label"></label>
+                <input asp-for="Inventory.SafetyStock" class="form-control" />
+                <span asp-validation-for="Inventory.SafetyStock" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Inventory.ReorderLevel" class="control-label"></label>
+                <input asp-for="Inventory.ReorderLevel" class="form-control" />
+                <span asp-validation-for="Inventory.ReorderLevel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
